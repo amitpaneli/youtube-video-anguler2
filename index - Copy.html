@@ -14,21 +14,19 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+
     <!-- Configure SystemJS -->
     <script>
-      System.config({
-        transpiler: 'typescript',
-        typescriptOptions: { emitDecoratorMetadata: true },
-        packages: {'app': {defaultExtension: 'ts'}},
-        map: { 'app': './angular2/src/app' }
-      });
-      System.import('app/datadisplay_main')
-            .then(null, console.error.bind(console));
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/js/main').then(null, console.error.bind(console));
     </script>
-
-    
-    
 </head>
 <body>
 <div class="container-fluid">
